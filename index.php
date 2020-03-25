@@ -31,13 +31,14 @@ try {
 <body>
     <h2 class="titel">Series</h2><br>
     <div class="series">
-
+<?php 
+        $serie = $pdo->query('SELECT * FROM netland.series')->fetchAll();
+?>
         <div class="serietitel">
             <h4>Title</h4>
             <span class="serietitels">
                 <?php
-                $stmt = $pdo->query('SELECT title FROM series');
-                foreach ($stmt as $row) {
+                foreach ($serie as $row) {
                     echo "" . $row['title'] . "<br>";
                 }
                 ?>
@@ -46,8 +47,7 @@ try {
         <div class="serierating">
             <h4>Rating</h4>
             <?php
-            $stmt = $pdo->query('SELECT rating FROM series');
-            foreach ($stmt as $row) {
+            foreach ($serie as $row) {
                 echo "" . $row['rating'] . "<br>";
             }
             ?>
@@ -58,13 +58,14 @@ try {
     </div>
     <h2 class="titel">Films</h2><br>
     <div class="films">
-
+<?php
+        $film = $pdo->query('SELECT * FROM netland.films')->fetchAll();
+?>
         <div class="filmtitel">
             <h4>Title</h4>
             <span class="filmtitels">
                 <?php
-                $stmt = $pdo->query('SELECT title FROM movies');
-                foreach ($stmt as $row) {
+                foreach ($film as $row) {
                     echo "" . $row['title'] . "<br>";
                 }
                 ?>
@@ -73,8 +74,7 @@ try {
         <div class="filmduur">
             <h4>Duur</h4>
             <?php
-            $stmt = $pdo->query('SELECT duur FROM movies');
-            foreach ($stmt as $row) {
+            foreach ($film as $row) {
                 echo "" . $row['duur'] . "<br>";
             }
             ?>
